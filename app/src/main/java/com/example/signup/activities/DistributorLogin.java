@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.signup.R;
 import com.example.signup.models.Distributor;
+import com.example.signup.utilities.AppPreference;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class DistributorLogin extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "DistributorLogin";
+    private static final String USER_TYPE = "distributor";
 
     private TextView notregisteredTextView, welcomeTextView;
     private EditText emailEditText, passwordEditText;
@@ -56,8 +58,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
 
 
     public void onClick(View v) {
-//        Intent intent = new Intent(DistributorLogin.this, DistributorRegistration.class);
-//        startActivity(intent);
+
         switch (v.getId()){
             case R.id.buttonSignIn:
                 loginDistributor();
@@ -83,12 +84,18 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
                     for (QueryDocumentSnapshot queryDocSnapshot : querySnapshot) {
                         Distributor distributor = queryDocSnapshot.toObject(Distributor.class);
                         distributor.setId(queryDocSnapshot.getId());
+
+                        AppPreference.setUserId(DistributorLogin.this,queryDocSnapshot.getId());
+                        AppPreference.setUserType(DistributorLogin.this,USER_TYPE);
+
                         Log.d(TAG, distributor.toString());
                         break;
                     }
+                    Intent intent = new Intent(DistributorLogin.this, OtpPage.class);
+                    startActivity(intent);
 
                 } else {
-                    Log.d("MainActivity", "get failed with ", task.getException());
+                    Log.d("MainActivity", "user not present please register ", task.getException());
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

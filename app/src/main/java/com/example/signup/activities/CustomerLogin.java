@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.signup.R;
 import com.example.signup.models.Customer;
 import com.example.signup.models.Distributor;
+import com.example.signup.utilities.AppPreference;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class CustomerLogin extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "CustomerLogin";
+    private static final String USER_TYPE = "customer";
 
     private TextView loginTextView, notregisteredTextView;
     private EditText emailEditText, passwordEditText;
@@ -82,8 +84,13 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()) {
                     QuerySnapshot querySnapshot = task.getResult();
                     for (QueryDocumentSnapshot queryDocSnapshot : querySnapshot) {
+
                         Customer customer = queryDocSnapshot.toObject(Customer.class);
                         customer.setId(queryDocSnapshot.getId());
+
+                        AppPreference.setUserId(CustomerLogin.this,queryDocSnapshot.getId());
+                        AppPreference.setUserType(CustomerLogin.this,USER_TYPE);
+
                         Log.d(TAG, customer.toString());
                         break;
                     }
