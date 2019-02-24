@@ -1,4 +1,4 @@
-package com.example.signup;
+package com.example.signup.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.signup.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView  rationhubtext;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         User.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(MainActivity.this, UserLogin.class);
+                Intent intent1=new Intent(MainActivity.this, CustomerLogin.class);
                 startActivity(intent1);
             }
         });

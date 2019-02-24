@@ -1,7 +1,9 @@
-package com.example.signup;
+package com.example.signup.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.signup.R;
 
 public class admindesk extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.signup;
+package com.example.signup.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.signup.R;
 
 public class adminlogin extends AppCompatActivity {
 

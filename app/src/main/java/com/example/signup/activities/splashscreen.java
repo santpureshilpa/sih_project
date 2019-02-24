@@ -1,9 +1,11 @@
-package com.example.signup;
+package com.example.signup.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.signup.R;
 
 public class splashscreen extends AppCompatActivity {
     private static int SPLASH_TIME_OUT=3000;

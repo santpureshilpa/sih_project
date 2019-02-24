@@ -17,21 +17,21 @@
             android:name=".homepage"
             android:label="@string/title_activity_homepage"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".splashscreen">
+        <activity android:name=".activities.splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OtpPage" />
-        <activity android:name=".admindesk" />
-        <activity android:name=".adminlogin" />
-        <activity android:name=".DistributorRegistration" />
-        <activity android:name=".UserRegistration" />
-        <activity android:name=".DistributorLogin" />
-        <activity android:name=".UserLogin" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.OtpPage" />
+        <activity android:name=".activities.admindesk" />
+        <activity android:name=".activities.adminlogin" />
+        <activity android:name=".activities.DistributorRegistration" />
+        <activity android:name=".activities.CustomerRegistration" />
+        <activity android:name=".activities.DistributorLogin" />
+        <activity android:name=".activities.CustomerLogin" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     tools:background="@android:color/white"
-    tools:context=".DistributorLogin">
+    tools:context=".activities.DistributorLogin">
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNotRegistered" />
 
     <EditText
-        android:id="@+id/editTextMobilNo"
+        android:id="@+id/editTextEmailId"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginStart="53dp"
@@ -57,8 +57,8 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/edit_round"
         android:ems="10"
-        android:hint="Mobile No."
-        android:inputType="phone"
+        android:hint="Email Id."
+        android:inputType="text"
         android:textAlignment="center"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextShopAddress"
@@ -86,7 +86,7 @@
         />
 
     <EditText
-        android:id="@+id/editTextShopAddress"
+        android:id="@+id/editTextPassword"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginStart="53dp"
@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMobilNo" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailId" />
 
     <View
         android:id="@+id/divider"
