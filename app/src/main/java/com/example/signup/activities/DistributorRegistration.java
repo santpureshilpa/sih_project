@@ -15,10 +15,15 @@ import android.widget.Toast;
 
 import com.example.signup.R;
 import com.example.signup.models.Distributor;
+import com.example.signup.models.Product;
+import com.example.signup.models.Shop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DistributorRegistration extends AppCompatActivity implements View.OnClickListener{
 
@@ -90,12 +95,19 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         distributor.setMobileNo(mobileNo);
         distributor.setPassword(password);
 
+        final Shop shop = new Shop();
+        shop.setAddress(shopAddress);
+        shop.setLicenseNo(licenseNo);
+        shop.setName(name);
+
         db.collection("distributors").
                 add(distributor).
                 addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "distributor added succesfully");
+                        shop.setDistributorId(documentReference.getId());
+                        registerShopWithId(shop);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -105,6 +117,26 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         });
         Log.d("info", "button clicked");
 
+    }
+
+    public void registerShopWithId(Shop shop){
+        Product product = new Product("id", "name", 10);
+        List<Product> products = new ArrayList<>();
+        products.add(product);
+
+        db.collection("shops").
+                add(shop).
+                addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "Shop added successfully");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("Get", "onFailure: ");
+            }
+        });
     }
 }
 

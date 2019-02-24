@@ -63,6 +63,10 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
             case R.id.buttonSignIn:
                 loginDistributor();
                 break;
+            case R.id.buttonCreateNew:
+                goToRegPage();
+                break;
+
         }
 
     }
@@ -104,6 +108,11 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
                 Log.d(TAG, "user not present please register");
             }
         });
+    }
+
+    public void goToRegPage(){
+        Intent intent = new Intent(DistributorLogin.this, DistributorRegistration.class);
+        startActivity(intent);
     }
 
 

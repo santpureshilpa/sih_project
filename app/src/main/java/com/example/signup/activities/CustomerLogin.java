@@ -94,6 +94,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                         Log.d(TAG, customer.toString());
                         break;
                     }
+                    Intent intent = new Intent(CustomerLogin.this, ShopList.class);
+                    startActivity(intent);
 
                 } else {
                     Log.d("MainActivity", "get failed with ", task.getException());
