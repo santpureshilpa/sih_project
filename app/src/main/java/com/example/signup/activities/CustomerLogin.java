@@ -115,6 +115,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     public void goToUserReg(){
         Intent intent = new Intent(CustomerLogin.this, CustomerRegistration.class);
         startActivity(intent);
+        // integrated successfully
     }
 }
 
