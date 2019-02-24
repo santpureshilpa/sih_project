@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".DistributorRegistration">
+
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:hint="Enter Your Name"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editTextShopAddress"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit_round"
+        android:hint="Enter Your Shop Address"
+        android:textAlignment="center"
+        android:textSize="16dp"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextLicenseNo"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="185dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:hint="Enter License Number"
+        android:textAlignment="center"
+        android:textSize="16dp"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextAdharNo"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:hint="Enter Aadhaar Card Number"
+        android:inputType="phone"
+        android:textAlignment="center"
+        android:textSize="16dp"
+
+        />
+
+    <Button
+        android:id="@+id/buttonProceed"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="470dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/button_round"
+
+        android:text="Proceed"
+        android:textSize="16dp" />
+
+
+    <CheckBox
+        android:id="@+id/checkBoxAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginRight="20dp"
+        android:text="By clicking Proceed you are accepting our Terms and Conditions"
+        android:textAlignment="textStart"
+        android:textSize="16dp" />
+
+
+    <EditText
+        android:id="@+id/editTextMobilNo"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="285dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:ems="10"
+        android:hint="Enter Mobile Number(As Per Adhaar Crd)"
+        android:inputType="phone"
+        android:textAlignment="center"
+        android:textSize="16dp"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="363dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/edit_round"
+        android:ems="10"
+        android:hint="Create Password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="16dp"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewWelcometext"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_round"
+        android:text="     New Distributor Registration"
+
+        android:textSize="24dp" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="12dp"/>
+
+    <RadioButton
+        android:id="@+id/radioButtonGovernment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginRight="12dp"
+        android:text="Government" />
+
+
+    <RadioButton
+        android:id="@+id/radioButtonPrivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginRight="12dp"
+        android:text="Private" />
+
+
+</RelativeLayout>

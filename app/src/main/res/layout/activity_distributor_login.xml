@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:background="@android:color/white"
+    tools:context=".DistributorLogin">
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="53dp"
+        android:background="@drawable/button_round"
+        android:text="Sign In"
+
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextShopAddress" />
+
+    <Button
+        android:id="@+id/buttonCreateNew"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/button_round"
+        android:text="Create New Account ? "
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNotRegistered" />
+
+    <EditText
+        android:id="@+id/editTextMobilNo"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edit_round"
+        android:ems="10"
+        android:hint="Mobile No."
+        android:inputType="phone"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextShopAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcomeText" />
+
+    <TextView
+        android:id="@+id/textViewWelcomeText"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="25dp"
+        android:text="    Welcome to The Ration Hub"
+        android:textSize="24sp"
+        app:autoSizeMaxTextSize="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button_round"
+        />
+
+    <EditText
+        android:id="@+id/editTextShopAddress"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="63dp"
+        android:background="@drawable/edit_round"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMobilNo" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="395dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="23dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNotRegistered"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+    <TextView
+        android:id="@+id/textViewNotRegistered"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Not Registered Yet ?"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateNew"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="395dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="74dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMobilNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcomeText" />
+
+</RelativeLayout>
