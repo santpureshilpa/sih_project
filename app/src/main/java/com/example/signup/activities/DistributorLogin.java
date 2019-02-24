@@ -43,7 +43,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
         notregisteredTextView = (TextView) findViewById(R.id.textViewNotRegistered);
 
         //EditText
-        emailEditText = (EditText) findViewById(R.id.editTextEmailId);
+        emailEditText = (EditText) findViewById(R.id.editTextMobilNo);
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
 
         //Button

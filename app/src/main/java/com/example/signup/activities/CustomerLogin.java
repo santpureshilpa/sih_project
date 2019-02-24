@@ -45,7 +45,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
         notregisteredTextView = (TextView) findViewById(R.id.textViewNotRegistered);
 
         //EditText
-        emailEditText = (EditText) findViewById(R.id.editTextEmailId);
+        emailEditText = (EditText) findViewById(R.id.editTextMobilNo);
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
 
         //Button
@@ -65,6 +65,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
             case R.id.buttonSignIn:
                 loginCustomer();
                 break;
+            case R.id.buttonCreateNew:
+                goToUserReg();
         }
 
     }
@@ -108,6 +110,11 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
             }
         });
 
+    }
+
+    public void goToUserReg(){
+        Intent intent = new Intent(CustomerLogin.this, CustomerRegistration.class);
+        startActivity(intent);
     }
 }
 

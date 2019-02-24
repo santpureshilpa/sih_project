@@ -100,6 +100,14 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         shop.setLicenseNo(licenseNo);
         shop.setName(name);
 
+        Product product = new Product("id", "name", 10);
+        Product product2 = new Product("id2", "name2", 20);
+        List<Product> products = new ArrayList<>();
+        products.add(product);
+
+        shop.setProducts(products);
+
+
         db.collection("distributors").
                 add(distributor).
                 addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -120,9 +128,7 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
     }
 
     public void registerShopWithId(Shop shop){
-        Product product = new Product("id", "name", 10);
-        List<Product> products = new ArrayList<>();
-        products.add(product);
+
 
         db.collection("shops").
                 add(shop).

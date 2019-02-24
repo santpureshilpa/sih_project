@@ -68,9 +68,9 @@ public class ShopList extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     public void getValues(Shop shop) {
-        //String data = userData.toString();
-        //Intent intent = new Intent(this,Activity.class);
-        //intent.putExtra("UserData",userData);
-        ///startActivity(intent);
+
+        Intent intent = new Intent(this,UserProductCheckout.class);
+        intent.putExtra("shop",shop);
+        startActivity(intent);
     }
 }
