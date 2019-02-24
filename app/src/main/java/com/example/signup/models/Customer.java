@@ -179,4 +179,22 @@ String id;
         dest.writeString(panNo);
         dest.writeString(rationNo);
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", phoneNo=" + phoneNo +
+                ", rationNo='" + rationNo + '\'' +
+                ", city='" + city + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", password='" + password + '\'' +
+                ", aadharNo=" + aadharNo +
+                ", voterNo='" + voterNo + '\'' +
+                ", panNo='" + panNo + '\'' +
+                '}';
+    }
 }

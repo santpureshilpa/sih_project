@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.signup.R;
+import com.example.signup.models.Customer;
+import com.example.signup.models.Distributor;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class CustomerLogin extends AppCompatActivity implements View.OnClickListener {
@@ -56,7 +59,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 //        Intent intent = new Intent(UserLogin.this, UserRegistration.class);
 //        startActivity(intent);
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.buttonSignIn:
                 loginCustomer();
                 break;
@@ -64,18 +67,30 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void loginCustomer(){
+    public void loginCustomer() {
         String emailId = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         Log.d(TAG, "logging in customer");
         CollectionReference citiesRef = db.collection("customers");
         Query query = citiesRef
                 .whereEqualTo("emailId", emailId)
-                .whereEqualTo("password",password);
+                .whereEqualTo("password", password);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 Log.d(TAG, "logged in successfully");
+                if (task.isSuccessful()) {
+                    QuerySnapshot querySnapshot = task.getResult();
+                    for (QueryDocumentSnapshot queryDocSnapshot : querySnapshot) {
+                        Customer customer = queryDocSnapshot.toObject(Customer.class);
+                        customer.setId(queryDocSnapshot.getId());
+                        Log.d(TAG, customer.toString());
+                        break;
+                    }
+
+                } else {
+                    Log.d("MainActivity", "get failed with ", task.getException());
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -83,8 +98,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                 Log.d(TAG, "user not present please register");
             }
         });
-    }
 
+    }
 }
 
 
