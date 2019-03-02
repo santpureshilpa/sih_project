@@ -61,7 +61,8 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(intentData)));
                     }
                 }*/
-
+                Intent intent = new Intent(ScannedBarcodeActivity.this, GoToPayment.class);
+                startActivity(intent);
 
             }
         });
@@ -112,7 +113,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
             }
 
             @Override
