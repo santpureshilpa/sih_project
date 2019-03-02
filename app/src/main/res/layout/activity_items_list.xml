@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,15 +9,198 @@
     <TextView
         android:layout_width="200dp"
         android:layout_height="45dp"
-        android:text="ITEM LIST"
+        android:text="My Items"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="27dp">
+       />
 
-    </TextView>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="Add New Item"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="495dp"
+        android:textAlignment="center"
+        android:textSize="16dp"
 
 
-</android.support.constraint.ConstraintLayout>
+        >
+
+    </Button>
+
+
+    <TextView
+        android:id="@+id/textViewRationCoins"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="Ration Coins"
+        android:textAlignment="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="110dp"/>
+
+    <TextView
+        android:id="@+id/textViewWheatCredit"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="5"
+        android:textAlignment="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/textViewSugarCredit"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="20"
+        android:textAlignment="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="230dp"/>
+
+    <TextView
+        android:id="@+id/textViewOilCredit"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="3"
+        android:textAlignment="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="280dp"/>
+
+    <TextView
+        android:id="@+id/textViewGrainsCredit"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="15"
+        android:textAlignment="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="330dp"/>
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="95dp"
+        />
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="155dp"
+        />
+
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="380dp"
+        />
+    <TextView
+        android:id="@+id/textViewProduct"
+        android:textSize="20dp"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:text="Product"
+        android:textAlignment="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="110dp"/>
+
+    <TextView
+        android:id="@+id/textViewWheat"
+        android:textSize="20dp"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:text="Wheat"
+        android:textAlignment="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/textViewSugar"
+        android:textSize="20dp"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:text="Sugar"
+        android:textAlignment="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="230dp"/>
+
+    <TextView
+        android:id="@+id/textViewOil"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="30dp"
+        android:text="Oil"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/textViewGrains"
+        android:textSize="20dp"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:text="Grains"
+        android:textAlignment="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="330dp"/>
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="205dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="170dp"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:hint="New Item"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="395dp"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:hint="Ration Coins"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="435dp"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        />
+</RelativeLayout>
