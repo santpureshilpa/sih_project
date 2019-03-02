@@ -65,10 +65,8 @@ public class HomePageCustomer extends AppCompatActivity {
         scanLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent scan=new Intent(HomePageCustomer.this, ScanActivity.class);
-                startActivity(scan);
-
-                Toast.makeText(HomePageCustomer.this, "Please click the button", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePageCustomer.this, ScannedBarcodeActivity.class);
+                startActivity(intent);
             }
         });
 
