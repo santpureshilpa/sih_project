@@ -87,7 +87,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         customer.setEmailId(emailId);
         customer.setPassword(password);
 
-        Toast.makeText(getApplicationContext(),"Account Created Successfully", Toast.LENGTH_LONG).show();
+
         Intent intent=new Intent(CustomerRegistration.this,HomePageCustomer.class);
         startActivity(intent);
         Toast.makeText(getApplicationContext(),"Account Created Successfully", Toast.LENGTH_LONG).show();

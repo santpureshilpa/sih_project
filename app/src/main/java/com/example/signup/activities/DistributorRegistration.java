@@ -95,6 +95,9 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         distributor.setMobileNo(mobileNo);
         distributor.setPassword(password);
 
+        Intent intent=new Intent(DistributorRegistration.this,DistributorHomePage.class);
+        startActivity(intent);
+
         final Shop shop = new Shop();
         shop.setAddress(shopAddress);
         shop.setLicenseNo(licenseNo);
@@ -106,6 +109,8 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         products.add(product);
 
         shop.setProducts(products);
+
+
 
 
         db.collection("distributors").

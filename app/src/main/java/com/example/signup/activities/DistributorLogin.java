@@ -92,8 +92,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
                         AppPreference.setUserId(DistributorLogin.this,queryDocSnapshot.getId());
                         AppPreference.setUserType(DistributorLogin.this,USER_TYPE);
 
-                        Intent intent=new Intent(DistributorLogin.this,HomePageCustomer.class);
-                        startActivity(intent);
+
 
                         Log.d(TAG, distributor.toString());
                         break;
@@ -102,6 +101,10 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
                 } else {
                     Log.d("MainActivity", "user not present please register ", task.getException());
                 }
+
+                Intent intent=new Intent(DistributorLogin.this,DistributorHomePage.class);
+                startActivity(intent);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
