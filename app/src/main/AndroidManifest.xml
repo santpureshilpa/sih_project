@@ -36,8 +36,10 @@
         <activity android:name=".activities.SearchMain" />
         <activity android:name=".activities.Store1ProductList" />
         <activity android:name=".activities.DistributorHomePage" />
-
-
+        <activity android:name=".activities.GovermentTransfer" />
+        <activity android:name=".activities.DistributorPassbook" />
+        <activity android:name=".activities.DistributorProfile" />
+        <activity android:name=".activities.ItemsList" />
     </application>
 
 </manifest>

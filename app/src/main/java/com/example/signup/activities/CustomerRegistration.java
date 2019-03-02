@@ -9,13 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.signup.R;
 import com.example.signup.models.Customer;
-import com.example.signup.models.Distributor;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -25,7 +23,8 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
     private static final String TAG = "UserRegistration";
 
     TextView newUserTxtView;
-    EditText nameEditText,rationCardNoEditText,phoneNoEditText,emailidEditText,passwordEditText;
+    EditText nameEditText,rationCardNoEditText,phoneNoEditText,passwordEditText,adharnoEditText;
+    EditText cityEditText;
     Button proceedBtn;
     CheckBox declarationChkBox,acceptChkBox;
 
@@ -36,7 +35,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_registration);
+        setContentView(R.layout.activity_customer_registration);
         //textView
         newUserTxtView = (TextView) findViewById(R.id.textViewWelcome);
 
@@ -45,7 +44,8 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
         rationCardNoEditText = (EditText) findViewById(R.id.editTextRationNo);
         phoneNoEditText = (EditText) findViewById(R.id.editTextPhone);
-        emailidEditText = (EditText) findViewById(R.id.editTextemailId);
+        adharnoEditText = (EditText) findViewById(R.id.editTextAdharNumb);
+        cityEditText = (EditText) findViewById(R.id.editTextCity);
 
         //buttons
         proceedBtn = (Button) findViewById(R.id.buttonProceed);
@@ -77,14 +77,15 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         String name = nameEditText.getText().toString();
         String rationNo = rationCardNoEditText.getText().toString();
         int phoneNo=Integer.parseInt(phoneNoEditText.getText().toString());
-        String emailId = emailidEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        String city = cityEditText.getText().toString();
+
 
         Customer customer = new Customer();
         customer.setName(name);
         customer.setRationNo(rationNo);
         customer.setPhoneNo(phoneNo);
-        customer.setEmailId(emailId);
+        customer.setCity(city);
         customer.setPassword(password);
 
 

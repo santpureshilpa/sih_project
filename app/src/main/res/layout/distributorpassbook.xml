@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DistributorPassbook"
+    tools:ignore="ExtraText"
+    android:id="@+id/bankdetailid">
+
+
+    <TextView
+        android:id="@+id/editTextwelcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=" Ration Passbook"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="45dp"
+
+        android:textStyle="bold" />
+
+
+
+
+    <ImageView
+        android:id="@+id/imageviewrationimage"
+        android:layout_width="130dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="35dp"
+        android:src="@drawable/ic_account_balance_wallet_black_24dp"
+        android:tint="@color/colorFlower" />
+
+    <TextView
+        android:id="@+id/textViewRationWallet"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:text="Ration Wallet"
+        android:layout_marginTop="270dp"
+        android:textSize="26dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="180dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
+
+
+    <TextView
+        android:id="@+id/editTextRationCoins"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:text="1000 Credits"
+        android:layout_marginTop="345dp"
+        android:textSize="26dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="180dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="110dp"
+        android:background="?android:attr/listDivider" />
+
+
+</RelativeLayout>

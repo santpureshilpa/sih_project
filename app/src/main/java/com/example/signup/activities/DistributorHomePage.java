@@ -24,9 +24,10 @@ public class DistributorHomePage extends AppCompatActivity {
             itemslayout = (LinearLayout) findViewById(R.id.itemsid);
             //qrcodelayout = (LinearLayout) findViewById(R.id.qrcodeid);
             govttransferlayout = (LinearLayout) findViewById(R.id.govtaccid);
+           myprofilelayout = (LinearLayout) findViewById(R.id.profileid);
 
 
-          /*  myprofilelayout.setOnClickListener(new View.OnClickListener() {
+            myprofilelayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent map = new Intent(DistributorHomePage.this,DistributorProfile.class);

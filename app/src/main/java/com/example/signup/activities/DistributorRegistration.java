@@ -30,6 +30,7 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
     private static final String TAG = "DistributorRegistration";
 
     EditText nameEditTxt,shopaddrEditTxt,licenseEditTxt,adharnoEditTxt,passwordEditTxt,mobilenoEditTxt;
+    EditText shopnameEditText, cityEditText;
     Button proceedBtn;
     CheckBox acceptChkBox;
     TextView WelcomeTextView;
@@ -51,6 +52,9 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         licenseEditTxt=(EditText)findViewById(R.id.editTextLicenseNo);
         adharnoEditTxt=(EditText)findViewById(R.id.editTextAdharNo);
         mobilenoEditTxt=(EditText)findViewById(R.id.editTextMobilNo);
+        cityEditText=(EditText)findViewById(R.id.editTextCity);
+        shopnameEditText=(EditText)findViewById(R.id.editTextShopName);
+
 
         //Button
         proceedBtn=(Button)findViewById(R.id.buttonProceed);

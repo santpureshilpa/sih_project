@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GovermentTransfer">
+
+
+
+    <TextView
+        android:id="@+id/ifscid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="IFSC : MAHB0001234 "
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/accountid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Account Number : 68021427845"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="110dp"
+        />
+
+
+
+        <TextView
+            android:id="@+id/confirmid"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=" Branch Name : Pune"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="190dp"
+            />
+
+        <TextView
+            android:id="@+id/holdernameid"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:text="Holder Name : Pooja  Dadabhau Sawant"
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="270dp"
+            />
+        <TextView
+            android:id="@+id/phonenumid"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:text=" Phone Number : 9870543212"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="20dp"
+            android:layout_marginTop="450dp"
+            />
+
+
+    <TextView
+        android:id="@+id/acctype"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textStyle="bold"
+        android:text=" Account Type :Savings"
+        android:textSize="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        />
+
+    </RelativeLayout>
