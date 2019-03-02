@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3=new Intent(MainActivity.this, adminlogin.class);
+                Intent intent3=new Intent(MainActivity.this, GoToPayment.class);
                 startActivity(intent3);
 
 

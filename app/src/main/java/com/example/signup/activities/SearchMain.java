@@ -18,7 +18,7 @@ import com.example.signup.R;
 
 public class SearchMain extends AppCompatActivity {
    ListView list;
-    String TYPE[] = {"Government Shop", "Private Shop", "Private Shop","Government Shop","Private Shop","Private Shop","Private Shop", "Private Shop","Private Shop"};
+    String TYPE[] = {"Government Shop", "Private Shop", "Private Shop","Private Shop","Private Shop","Private Shop","Private Shop", "Private Shop","Private Shop"};
    String NAMES[] = {"MarketYard", "Mahalakshmi", "BigBazaar","Food For All","Reliance","SaiKrupa","Ganesh","Mango","Rstore"};
    String ADDRESS[] = {"Sector 3,ChandanNagar,Pune" ,"Baif Road,Wagholi,pune", "ABCD","Kesnand Phata,Wagholi","@post Salse","Swarget,pune","Laxmi Road,pune","Dhayari,sinhagad Road,pune","Nashik Phata,pune"};
    int imgs[] = {R.drawable.shops, R.drawable.shops, R.drawable.shops,R.drawable.shops,R.drawable.shops,R.drawable.shops,R.drawable.shops,R.drawable.shops,R.drawable.shops};

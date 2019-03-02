@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GoToPayment">
+
+
+
+    <TextView
+        android:id="@+id/distributor"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:text="Distributor :"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/ration_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="180dp"
+        android:text="Ration Coins :"
+        android:textSize="20dp" />
+
+    <TextView
+
+        android:id="@+id/distributor_textid"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="A.P.Kale"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ration_coins_textid"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="112"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="60dp"
+        android:background="@color/colorAqua"
+        android:text="PAY"
+        android:textSize="35dp"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        />
+
+
+
+</RelativeLayout>

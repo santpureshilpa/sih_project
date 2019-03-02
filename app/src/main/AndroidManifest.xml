@@ -40,6 +40,8 @@
         <activity android:name=".activities.DistributorPassbook" />
         <activity android:name=".activities.DistributorProfile" />
         <activity android:name=".activities.ItemsList" />
+        <activity android:name=".activities.GoToPayment" />
+
     </application>
 
 </manifest>
