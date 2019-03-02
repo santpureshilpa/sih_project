@@ -25,7 +25,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
     private static final String TAG = "UserRegistration";
 
     TextView newUserTxtView;
-    EditText nameEditText,rationCardNoEditText,phoneNoEditText,cityEditText,passwordEditText;
+    EditText nameEditText,rationCardNoEditText,phoneNoEditText,emailidEditText,passwordEditText;
     Button proceedBtn;
     CheckBox declarationChkBox,acceptChkBox;
 
@@ -45,7 +45,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
         rationCardNoEditText = (EditText) findViewById(R.id.editTextRationNo);
         phoneNoEditText = (EditText) findViewById(R.id.editTextPhone);
-        cityEditText = (EditText) findViewById(R.id.editTextCity);
+        emailidEditText = (EditText) findViewById(R.id.editTextemailId);
 
         //buttons
         proceedBtn = (Button) findViewById(R.id.buttonProceed);
@@ -77,16 +77,20 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         String name = nameEditText.getText().toString();
         String rationNo = rationCardNoEditText.getText().toString();
         int phoneNo=Integer.parseInt(phoneNoEditText.getText().toString());
-        String city = cityEditText.getText().toString();
+        String emailId = emailidEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
         Customer customer = new Customer();
         customer.setName(name);
         customer.setRationNo(rationNo);
         customer.setPhoneNo(phoneNo);
-        customer.setCity(city);
+        customer.setEmailId(emailId);
         customer.setPassword(password);
 
+        Toast.makeText(getApplicationContext(),"Account Created Successfully", Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(CustomerRegistration.this,HomePageCustomer.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(),"Account Created Successfully", Toast.LENGTH_LONG).show();
 
         db.collection("customers").
                 add(customer).
@@ -102,6 +106,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
             }
         });
         Log.d("info", "button clicked");
+
 
     }
 }

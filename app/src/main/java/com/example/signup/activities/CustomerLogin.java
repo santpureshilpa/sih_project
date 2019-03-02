@@ -29,7 +29,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     private static final String USER_TYPE = "customer";
 
     private TextView loginTextView, notregisteredTextView;
-    private EditText emailEditText, passwordEditText;
+    private EditText phoneEditText, passwordEditText;
     private Button signinBtn, createnewBtn;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -45,7 +45,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
         notregisteredTextView = (TextView) findViewById(R.id.textViewNotRegistered);
 
         //EditText
-        emailEditText = (EditText) findViewById(R.id.editTextMobilNo);
+        phoneEditText = (EditText) findViewById(R.id.editTextPhone);
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
 
         //Button
@@ -72,12 +72,12 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     }
 
     public void loginCustomer() {
-        String emailId = emailEditText.getText().toString();
+        String phoneNo = phoneEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         Log.d(TAG, "logging in customer");
         CollectionReference citiesRef = db.collection("customers");
         Query query = citiesRef
-                .whereEqualTo("emailId", emailId)
+                .whereEqualTo("phoneNo", phoneNo)
                 .whereEqualTo("password", password);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -93,15 +93,18 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                         AppPreference.setUserId(CustomerLogin.this,queryDocSnapshot.getId());
                         AppPreference.setUserType(CustomerLogin.this,USER_TYPE);
 
+
                         Log.d(TAG, customer.toString());
                         break;
                     }
-                    Intent intent = new Intent(CustomerLogin.this, ShopList.class);
-                    startActivity(intent);
 
                 } else {
                     Log.d("MainActivity", "get failed with ", task.getException());
                 }
+
+                Intent intent=new Intent(CustomerLogin.this,HomePageCustomer.class);
+                startActivity(intent);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

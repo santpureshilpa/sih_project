@@ -57,7 +57,7 @@
         android:padding="10dp"
         android:textAlignment="center"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCity"
+        app:layout_constraintBottom_toTopOf="@+id/editTextemailId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider4" />
@@ -101,10 +101,10 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextRationNo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextemailId" />
 
     <EditText
-        android:id="@+id/editTextCity"
+        android:id="@+id/editTextemailId"
         android:layout_width="400dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
@@ -113,7 +113,7 @@
         android:layout_marginBottom="53dp"
         android:background="@drawable/edit_round"
         android:ems="10"
-        android:hint="City"
+        android:hint="Email Id"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textAlignment="center"

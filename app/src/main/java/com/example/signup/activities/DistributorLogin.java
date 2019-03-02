@@ -36,7 +36,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
+        setContentView(R.layout.activity_distributor_login);
 
         //TextView
         welcomeTextView = (TextView) findViewById(R.id.textViewWelcomeText);
@@ -92,11 +92,12 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
                         AppPreference.setUserId(DistributorLogin.this,queryDocSnapshot.getId());
                         AppPreference.setUserType(DistributorLogin.this,USER_TYPE);
 
+                        Intent intent=new Intent(DistributorLogin.this,HomePageCustomer.class);
+                        startActivity(intent);
+
                         Log.d(TAG, distributor.toString());
                         break;
                     }
-                    Intent intent = new Intent(DistributorLogin.this, OtpPage.class);
-                    startActivity(intent);
 
                 } else {
                     Log.d("MainActivity", "user not present please register ", task.getException());
