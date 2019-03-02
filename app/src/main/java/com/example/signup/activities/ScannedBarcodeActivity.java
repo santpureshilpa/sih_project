@@ -133,14 +133,18 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                 txtBarcodeValue.setText(intentData);
                                 isEmail = true;
                                 btnAction.setText("ADD CONTENT TO THE MAIL");
+                                Intent intent = new Intent(ScannedBarcodeActivity.this, GoToPayment.class);
+                                startActivity(intent);
                             } else {
                                 isEmail = false;
                                 btnAction.setText("LAUNCH URL");
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText(intentData);
-
+                                Intent intent = new Intent(ScannedBarcodeActivity.this, GoToPayment.class);
+                                startActivity(intent);
                             }
                         }
+
                     });
 
                 }

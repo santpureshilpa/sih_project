@@ -22,7 +22,7 @@ public class DistributorHomePage extends AppCompatActivity {
             myprofilelayout = (LinearLayout) findViewById(R.id.profileid);
             passbooklayout = (LinearLayout) findViewById(R.id.passbookid);
             itemslayout = (LinearLayout) findViewById(R.id.itemsid);
-            //qrcodelayout = (LinearLayout) findViewById(R.id.qrcodeid);
+            qrcodelayout = (LinearLayout) findViewById(R.id.scanid);
             govttransferlayout = (LinearLayout) findViewById(R.id.govtaccid);
            myprofilelayout = (LinearLayout) findViewById(R.id.profileid);
 
@@ -58,12 +58,12 @@ public class DistributorHomePage extends AppCompatActivity {
                     startActivity(transfer);
                 }
             });
-           /* qrcodelayout.setOnClickListener(new View.OnClickListener() {
+            qrcodelayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent qr = new Intent(DistributorHomePage.this, DistributorQRCodeGenerator.class);
+                    Intent qr = new Intent(DistributorHomePage.this, ScanActivity.class);
                     startActivity(qr);
                 }
-            });*/
+            });
         }
     }

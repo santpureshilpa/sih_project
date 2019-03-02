@@ -18,7 +18,8 @@
         android:label="Ration Hub"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="android.support.multidex.MultiDexApplication">
         <activity android:name=".activities.ScanActivity"></activity>
         <activity android:name=".activities.HomePageCustomer" />
         <activity android:name=".activities.UserProductCheckout" />
