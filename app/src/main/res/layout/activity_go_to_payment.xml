@@ -60,7 +60,7 @@
         android:id="@+id/button"
         android:layout_width="260dp"
         android:layout_height="80dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="400dp"
         android:layout_marginStart="60dp"
         android:background="@color/colorAqua"
         android:text="PAY"
@@ -70,6 +70,15 @@
         android:textStyle="bold"
         />
 
+    <EditText
+        android:id="@+id/editTextOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter OTP to proceed"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="50dp"/>
 
 
 </RelativeLayout>

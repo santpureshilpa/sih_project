@@ -1,11 +1,13 @@
 package com.example.signup.activities;
 
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +23,20 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class GoToPayment extends AppCompatActivity {
 
     private Button button;
     private TextView distributor,ration_coins,distributor_text,ration_coin_text;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String sessionId;
+    private EditText editTextOTP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +45,7 @@ public class GoToPayment extends AppCompatActivity {
 
         this.setTitle("Credit Transfer");
 
-
+        editTextOTP = findViewById(R.id.editTextOTP);
         button=(Button)findViewById(R.id.button);
         distributor_text=(TextView)findViewById(R.id.distributor_textid);
         ration_coin_text=(TextView)findViewById(R.id.ration_coins_textid);
@@ -45,14 +56,83 @@ public class GoToPayment extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),totalAmount + " Ration Coins Successfully Transferd to " + "dwfe",Toast.LENGTH_LONG).show();
-                String custId = AppPreference.getUserId(GoToPayment.this);
-                getCustomer(custId, 200);
-                getDistributor(clickedDis, 200);
+                //Toast.makeText(getApplicationContext(),totalAmount + " Ration Coins Successfully Transferd to " + "dwfe",Toast.LENGTH_LONG).show();
+                verifyOTP();
+
             }
         });
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        generateOTP();
 
 
+    }
+
+    public void generateOTP(){
+        HttpURLConnection urlConnection = null;
+        try {
+            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/+919623580938/AUTOGEN");
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            int responseCode = urlConnection.getResponseCode();
+            if(responseCode == HttpURLConnection.HTTP_OK){
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+                StringBuilder responseStrBuilder = new StringBuilder();
+
+                String inputStr;
+                while ((inputStr = streamReader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+
+                JSONObject jsonObject = new JSONObject(responseStrBuilder.toString());
+                sessionId = jsonObject.getString("Details");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+        }
+    }
+
+    public void verifyOTP() {
+        String otpEntered = editTextOTP.getText().toString();
+        HttpURLConnection urlConnection = null;
+        try {
+            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/VERIFY/" + sessionId + "/" + otpEntered);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            int responseCode = urlConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+                StringBuilder responseStrBuilder = new StringBuilder();
+
+                String inputStr;
+                while ((inputStr = streamReader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+
+                JSONObject jsonObject = new JSONObject(responseStrBuilder.toString());
+                sessionId = jsonObject.getString("Details");
+                String status = jsonObject.getString("Status");
+                if (status.equals("Success")) {
+                    //Toast.makeText(CustomerRegistration.this, "otp correct", Toast.LENGTH_LONG).show();
+                    String custId = AppPreference.getUserId(GoToPayment.this);
+                    String clickedDis = AppPreference.getClickedDistributor(GoToPayment.this);
+                    getCustomer(custId, 200);
+                    getDistributor(clickedDis, 200);
+                } else {
+                    Toast.makeText(GoToPayment.this, "otp incorrect", Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(GoToPayment.this, "otp incorrect", Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+        }
     }
 
     public void getCustomer(final String customerId, final int amountTODeduct){
