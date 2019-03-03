@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.signup.R;
+import com.example.signup.utilities.AppPreference;
 
 public class SearchMain extends AppCompatActivity {
    ListView list;
@@ -32,6 +33,8 @@ public class SearchMain extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String distributorId = "0sIkk3QsHRvgVyFc4KOv";
+                AppPreference.setClickedDistributor(SearchMain.this, distributorId);
                 if (position==0){
                     //Toast.makeText(MainActivity.this, "government shop", Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(SearchMain.this, Store1ProductList.class);

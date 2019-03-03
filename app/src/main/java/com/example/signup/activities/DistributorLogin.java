@@ -28,7 +28,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
     private static final String USER_TYPE = "distributor";
 
     private TextView notregisteredTextView, welcomeTextView;
-    private EditText emailEditText, passwordEditText;
+    private EditText mobileNoEditTxt, passwordEditText;
     private Button signinBtn, createnewBtn;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -43,7 +43,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
         notregisteredTextView = (TextView) findViewById(R.id.textViewNotRegistered);
 
         //EditText
-        emailEditText = (EditText) findViewById(R.id.editTextMobilNo);
+        mobileNoEditTxt = (EditText) findViewById(R.id.editTextMobilNo);
         passwordEditText = (EditText) findViewById(R.id.editTextPassword);
 
         //Button
@@ -72,12 +72,12 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
     }
 
     public void loginDistributor(){
-        String emailId = emailEditText.getText().toString();
+        int mobileNo = Integer.parseInt(mobileNoEditTxt.getText().toString());
         String password = passwordEditText.getText().toString();
         Log.d(TAG, "logging in distributor");
-        CollectionReference citiesRef = db.collection("distributors");
-        Query query = citiesRef
-                        .whereEqualTo("emailId", emailId)
+        CollectionReference distributorsRef = db.collection("distributors");
+        Query query = distributorsRef
+                        .whereEqualTo("mobileNo", mobileNo)
                         .whereEqualTo("password",password);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

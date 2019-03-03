@@ -17,6 +17,7 @@ String id;
   int aadharNo;
   String voterNo;
   String panNo;
+  int credit;
 
     protected Customer(Parcel in) {
         id = in.readString();
@@ -31,6 +32,7 @@ String id;
         voterNo = in.readString();
         panNo = in.readString();
         rationNo=in.readString();
+        credit = in.readInt();
     }
 
     public static final Creator<Customer> CREATOR = new Creator<Customer>() {
@@ -141,10 +143,18 @@ String id;
         this.rationNo = rationNo;
     }
 
+    public int getCredit() {
+        return credit;
+    }
+
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
+
     public Customer() {
     }
 
-    public Customer(String id, String name, String emailId, int phoneNo, String city, float longitude, float latitude, String password, int aadharNo, String voterNo, String panNo) {
+    public Customer(String id, String name, String emailId, int phoneNo, String city, float longitude, float latitude, String password, int aadharNo, String voterNo, String panNo, int credit) {
         this.id = id;
         this.name = name;
         this.emailId = emailId;
@@ -157,6 +167,7 @@ String id;
         this.voterNo = voterNo;
         this.panNo = panNo;
         this.rationNo=rationNo;
+        this.credit  =credit;
     }
 
     @Override
@@ -178,6 +189,7 @@ String id;
         dest.writeString(voterNo);
         dest.writeString(panNo);
         dest.writeString(rationNo);
+        dest.writeInt(credit);
     }
 
     @Override
@@ -195,6 +207,7 @@ String id;
                 ", aadharNo=" + aadharNo +
                 ", voterNo='" + voterNo + '\'' +
                 ", panNo='" + panNo + '\'' +
+                ", credit='" + credit + '\'' +
                 '}';
     }
 }

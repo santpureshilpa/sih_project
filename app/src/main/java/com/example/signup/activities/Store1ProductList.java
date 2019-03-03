@@ -1,5 +1,6 @@
 package com.example.signup.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.signup.R;
+import com.example.signup.utilities.AppPreference;
 
 public class Store1ProductList extends AppCompatActivity {
 
@@ -81,6 +83,9 @@ public class Store1ProductList extends AppCompatActivity {
 
                 double sum = num1+num2+num3;
                 SumOfProducts.setText(String.valueOf(sum));
+                AppPreference.setTotalPayableAmountFromCusToDes(Store1ProductList.this, String.valueOf(sum));
+                Intent intent = new Intent(Store1ProductList.this, GoToPayment.class);
+                startActivity(intent);
             }
         });
 

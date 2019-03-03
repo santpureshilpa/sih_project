@@ -72,7 +72,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     }
 
     public void loginCustomer() {
-        String phoneNo = phoneEditText.getText().toString();
+        int phoneNo = Integer.parseInt(phoneEditText.getText().toString());
         String password = passwordEditText.getText().toString();
         Log.d(TAG, "logging in customer");
         CollectionReference citiesRef = db.collection("customers");
@@ -95,6 +95,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
 
                         Log.d(TAG, customer.toString());
+                        Intent intent=new Intent(CustomerLogin.this,HomePageCustomer.class);
+                        startActivity(intent);
                         break;
                     }
 
@@ -102,8 +104,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                     Log.d("MainActivity", "get failed with ", task.getException());
                 }
 
-                Intent intent=new Intent(CustomerLogin.this,HomePageCustomer.class);
-                startActivity(intent);
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {

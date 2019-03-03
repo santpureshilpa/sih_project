@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.signup.R;
+import com.example.signup.utilities.AppPreference;
 import com.google.zxing.WriterException;
 
 import androidmads.library.qrgenearator.QRGContents;
@@ -27,7 +28,8 @@ public class ScanActivity extends AppCompatActivity{
     }
 
     public void generateAndShowQRCode(){
-        QRGEncoder qrgEncoder = new QRGEncoder("distributor", null, QRGContents.Type.TEXT, 500);
+        String distributorId = AppPreference.getUserId(ScanActivity.this);
+        QRGEncoder qrgEncoder = new QRGEncoder(distributorId, null, QRGContents.Type.TEXT, 500);
         try {
             // Getting QR-Code as Bitmap
             bitmap = qrgEncoder.encodeAsBitmap();
