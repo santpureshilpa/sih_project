@@ -72,7 +72,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     }
 
     public void loginCustomer() {
-        int phoneNo = Integer.parseInt(phoneEditText.getText().toString());
+        long phoneNo = Long.parseLong(phoneEditText.getText().toString());
         String password = passwordEditText.getText().toString();
         Log.d(TAG, "logging in customer");
         CollectionReference citiesRef = db.collection("customers");
@@ -92,7 +92,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
                         AppPreference.setUserId(CustomerLogin.this,queryDocSnapshot.getId());
                         AppPreference.setUserType(CustomerLogin.this,USER_TYPE);
-
+                        AppPreference.setCustomerMobileNo(CustomerLogin.this, String.valueOf(customer.getPhoneNo()));
 
                         Log.d(TAG, customer.toString());
                         Intent intent=new Intent(CustomerLogin.this,HomePageCustomer.class);

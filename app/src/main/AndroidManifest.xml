@@ -56,6 +56,7 @@
         <activity android:name=".activities.ScannedBarcodeActivity" />
         <activity android:name=".activities.OtpPageCustomer" />
         <activity android:name=".activities.OtpPageDistributor" />
+        <activity android:name=".activities.rating" />
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />

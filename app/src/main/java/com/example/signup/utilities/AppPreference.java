@@ -9,6 +9,8 @@ public class AppPreference {
     private static final String USER_ID = "userId";
     private static final String USER_TYPE = "userType";
     private static final String CLICKED_DISTRIBUTOR = "clickedDis";
+    private static final String CUST_MOBILE_NO = "custMobileNo";
+    private static final String DIST_MOBILE_NO = "distMobileNo";
     private static final String TOTAL_PAYABLE_AMOUNT_FROM_CUS_TO_DES = "totalPayable";
 
     public static void setUserId(Context context, String value) {
@@ -49,6 +51,26 @@ public class AppPreference {
     public static void setClickedDistributor(Context context, String value) {
         SharedPreferences preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         preferences.edit().putString(CLICKED_DISTRIBUTOR, value).commit();
+    }
+
+    public static String getCustomerMobileNo(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return preferences.getString(CUST_MOBILE_NO, "");
+    }
+
+    public static void setCustomerMobileNo(Context context, String value) {
+        SharedPreferences preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        preferences.edit().putString(CUST_MOBILE_NO, value).commit();
+    }
+
+    public static String getDistributorMobileNo(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return preferences.getString(DIST_MOBILE_NO, "");
+    }
+
+    public static void setDistributorMobileNo(Context context, String value) {
+        SharedPreferences preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        preferences.edit().putString(DIST_MOBILE_NO, value).commit();
     }
 
 }

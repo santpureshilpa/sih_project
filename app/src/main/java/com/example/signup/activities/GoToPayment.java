@@ -1,5 +1,6 @@
 package com.example.signup.activities;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,7 @@ import java.net.URL;
 
 public class GoToPayment extends AppCompatActivity {
 
-    private Button button;
+    private Button button,button1;
     private TextView distributor,ration_coins,distributor_text,ration_coin_text;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String sessionId;
@@ -47,11 +48,13 @@ public class GoToPayment extends AppCompatActivity {
 
         editTextOTP = findViewById(R.id.editTextOTP);
         button=(Button)findViewById(R.id.button);
+        button1=(Button)findViewById(R.id.button1);
+
         distributor_text=(TextView)findViewById(R.id.distributor_textid);
         ration_coin_text=(TextView)findViewById(R.id.ration_coins_textid);
         final String clickedDis = AppPreference.getClickedDistributor(GoToPayment.this);
         final String totalAmount = AppPreference.getTotalPayableAmountFromCusToDes(GoToPayment.this);
-        distributor_text.setText("dwfe");
+        distributor_text.setText("A.P.Kale");
         ration_coin_text.setText(totalAmount);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,17 +64,24 @@ public class GoToPayment extends AppCompatActivity {
 
             }
         });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rate= new Intent (GoToPayment.this,rating.class);
+                startActivity(rate);
+            }
+        });
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        generateOTP();
-
+        long mobileNo = Long.parseLong(AppPreference.getCustomerMobileNo(GoToPayment.this));
+        generateOTP(mobileNo);
 
     }
 
-    public void generateOTP(){
+    public void generateOTP(long mobileNo){
         HttpURLConnection urlConnection = null;
         try {
-            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/+919623580938/AUTOGEN");
+            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/+91"+mobileNo+"/AUTOGEN");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             int responseCode = urlConnection.getResponseCode();
@@ -118,8 +128,12 @@ public class GoToPayment extends AppCompatActivity {
                     //Toast.makeText(CustomerRegistration.this, "otp correct", Toast.LENGTH_LONG).show();
                     String custId = AppPreference.getUserId(GoToPayment.this);
                     String clickedDis = AppPreference.getClickedDistributor(GoToPayment.this);
-                    getCustomer(custId, 200);
-                    getDistributor(clickedDis, 200);
+                    final String totalAmount = AppPreference.getTotalPayableAmountFromCusToDes(GoToPayment.this);
+                    int creditFinal = new Double(Double.parseDouble(totalAmount)).intValue();
+                    getCustomer(custId, creditFinal);
+
+
+
                 } else {
                     Toast.makeText(GoToPayment.this, "otp incorrect", Toast.LENGTH_LONG).show();
                 }
@@ -169,6 +183,11 @@ public class GoToPayment extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        String clickedDis = AppPreference.getClickedDistributor(GoToPayment.this);
+                        final String totalAmount = AppPreference.getTotalPayableAmountFromCusToDes(GoToPayment.this);
+                        int creditFinal = new Double(Double.parseDouble(totalAmount)).intValue();
+                        getDistributor(clickedDis, creditFinal);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -213,6 +232,7 @@ public class GoToPayment extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

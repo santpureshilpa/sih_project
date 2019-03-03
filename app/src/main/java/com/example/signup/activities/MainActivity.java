@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.signup.R;
+import com.example.signup.utilities.AppPreference;
 
 public class MainActivity extends AppCompatActivity {
     private TextView  rationhubtext;
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 }

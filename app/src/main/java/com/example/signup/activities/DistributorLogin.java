@@ -91,7 +91,7 @@ public class DistributorLogin extends AppCompatActivity implements View.OnClickL
 
                         AppPreference.setUserId(DistributorLogin.this,queryDocSnapshot.getId());
                         AppPreference.setUserType(DistributorLogin.this,USER_TYPE);
-
+                        AppPreference.setDistributorMobileNo(DistributorLogin.this, String.valueOf(distributor.getMobileNo()));
 
 
                         Log.d(TAG, distributor.toString());
