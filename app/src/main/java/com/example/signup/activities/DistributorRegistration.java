@@ -75,20 +75,17 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
 
         switch (v.getId()){
             case R.id.buttonProceed:
-                registerDistributor();
+                goToOTPPage();
                 break;
         }
-//        Intent intent = new Intent(DistributorRegistration.this, OtpPage.class);
-//        startActivity(intent);
-//        Toast.makeText(getApplicationContext(), "OTP Sent", Toast.LENGTH_SHORT).show();
     }
 
-    public void registerDistributor(){
+    public void goToOTPPage(){
         String name = nameEditTxt.getText().toString();
         String shopAddress = shopaddrEditTxt.getText().toString();
         String licenseNo= licenseEditTxt.getText().toString();
         int aadharNo = Integer.parseInt(adharnoEditTxt.getText().toString());
-        int mobileNo= Integer.parseInt(mobilenoEditTxt.getText().toString());
+        long mobileNo= Long.parseLong(mobilenoEditTxt.getText().toString());
         String password= passwordEditTxt.getText().toString();
 
         Distributor distributor = new Distributor();
@@ -98,9 +95,6 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         distributor.setAadharNo(aadharNo);
         distributor.setMobileNo(mobileNo);
         distributor.setPassword(password);
-
-        Intent intent=new Intent(DistributorRegistration.this,DistributorHomePage.class);
-        startActivity(intent);
 
         final Shop shop = new Shop();
         shop.setAddress(shopAddress);
@@ -113,45 +107,13 @@ public class DistributorRegistration extends AppCompatActivity implements View.O
         products.add(product);
 
         shop.setProducts(products);
-
-
-
-
-        db.collection("distributors").
-                add(distributor).
-                addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "distributor added succesfully");
-                        shop.setDistributorId(documentReference.getId());
-                        registerShopWithId(shop);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("Get", "onFailure: ");
-            }
-        });
-        Log.d("info", "button clicked");
+        Intent intent=new Intent(DistributorRegistration.this,OtpPageDistributor.class);
+        intent.putExtra("shop", shop);
+        intent.putExtra("distributor", distributor);
+        startActivity(intent);
 
     }
 
-    public void registerShopWithId(Shop shop){
 
-
-        db.collection("shops").
-                add(shop).
-                addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "Shop added successfully");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("Get", "onFailure: ");
-            }
-        });
-    }
 }
 

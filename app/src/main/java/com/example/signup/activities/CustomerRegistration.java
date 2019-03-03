@@ -36,9 +36,9 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
     private static final String TAG = "UserRegistration";
 
     TextView newUserTxtView;
-    EditText nameEditText,rationCardNoEditText,phoneNoEditText,passwordEditText,adharnoEditText, otpEditText;
+    EditText nameEditText,rationCardNoEditText,phoneNoEditText,passwordEditText,adharnoEditText;
     EditText cityEditText;
-    Button proceedBtn, generateOTPBtn;
+    Button proceedBtn;
     CheckBox declarationChkBox,acceptChkBox;
     String sessionId;
     OTPSentResponse otpSentResponse;
@@ -55,16 +55,16 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
 
         //editText
         nameEditText = (EditText) findViewById(R.id.editTextName);
-        passwordEditText = (EditText) findViewById(R.id.editTextPassword);
+        passwordEditText = (EditText) findViewById(R.id.editTextCreatePassword);
         rationCardNoEditText = (EditText) findViewById(R.id.editTextRationNo);
-        phoneNoEditText = (EditText) findViewById(R.id.editTextPhone);
+        phoneNoEditText = (EditText) findViewById(R.id.editTextPhoneNo);
         adharnoEditText = (EditText) findViewById(R.id.editTextAdharNumb);
         cityEditText = (EditText) findViewById(R.id.editTextCity);
-        otpEditText = findViewById(R.id.otpEditText);
+
 
         //buttons
         proceedBtn = (Button) findViewById(R.id.buttonProceed);
-        generateOTPBtn = findViewById(R.id.generateOTPBtn);
+
 
         //checkboxes
         declarationChkBox=(CheckBox)findViewById(R.id.checkBoxDeclaration);
@@ -72,7 +72,7 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
 
         //listeners
         proceedBtn.setOnClickListener(this);
-        generateOTPBtn.setOnClickListener(this);
+
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -82,88 +82,17 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
 
         switch (v.getId()){
             case R.id.buttonProceed:
-                verifyOTP();
-                    //registerCustomer();
-                break;
-            case R.id.generateOTPBtn:
-                generateOTP();
+                jumpToOTPPage();
                 break;
         }
-//        Intent intent = new Intent(UserRegistration.this, OtpPage.class);
-//        startActivity(intent);
-//        Toast.makeText(getApplicationContext(), "OTP Sent", Toast.LENGTH_SHORT).show();
-
-
 
     }
 
-    public void generateOTP(){
-        HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/+919623580938/AUTOGEN");
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            int responseCode = urlConnection.getResponseCode();
-            if(responseCode == HttpURLConnection.HTTP_OK){
-                BufferedReader streamReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-                StringBuilder responseStrBuilder = new StringBuilder();
 
-                String inputStr;
-                while ((inputStr = streamReader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
-
-                JSONObject jsonObject = new JSONObject(responseStrBuilder.toString());
-                sessionId = jsonObject.getString("Details");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (urlConnection != null) {
-                urlConnection.disconnect();
-            }
-        }
-    }
-
-    public void verifyOTP() {
-        String otpEntered = otpEditText.getText().toString();
-        HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL("https://2factor.in/API/V1/404fbc81-3d22-11e9-8806-0200cd936042/SMS/VERIFY/" + sessionId + "/" + otpEntered);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            int responseCode = urlConnection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                BufferedReader streamReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-                StringBuilder responseStrBuilder = new StringBuilder();
-
-                String inputStr;
-                while ((inputStr = streamReader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
-
-                JSONObject jsonObject = new JSONObject(responseStrBuilder.toString());
-                sessionId = jsonObject.getString("Details");
-                String status = jsonObject.getString("Status");
-                if (status.equals("Success")) {
-                    Toast.makeText(CustomerRegistration.this, "otp correct", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(CustomerRegistration.this, "otp incorrect", Toast.LENGTH_LONG).show();
-                }
-            }else{
-                Toast.makeText(CustomerRegistration.this, "otp incorrect", Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (urlConnection != null) {
-                urlConnection.disconnect();
-            }
-        }
-    }
-
-    public void registerCustomer(){
+    public void jumpToOTPPage(){
         String name = nameEditText.getText().toString();
         String rationNo = rationCardNoEditText.getText().toString();
-        int phoneNo=Integer.parseInt(phoneNoEditText.getText().toString());
+        long phoneNo=Long.parseLong(phoneNoEditText.getText().toString());
         String password = passwordEditText.getText().toString();
         String city = cityEditText.getText().toString();
 
@@ -176,26 +105,9 @@ public class CustomerRegistration extends AppCompatActivity implements View.OnCl
         customer.setPassword(password);
 
 
-        Intent intent=new Intent(CustomerRegistration.this,HomePageCustomer.class);
+        Intent intent=new Intent(CustomerRegistration.this,OtpPageCustomer.class);
+        intent.putExtra("customer", customer);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(),"Account Created Successfully", Toast.LENGTH_LONG).show();
-
-        db.collection("customers").
-                add(customer).
-                addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "distributor added succesfully");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("Get", "onFailure: ");
-            }
-        });
-        Log.d("info", "button clicked");
-
-
     }
 
 

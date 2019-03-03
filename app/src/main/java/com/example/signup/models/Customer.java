@@ -8,7 +8,7 @@ public class Customer implements Parcelable {
 String id;
   String name;
   String emailId;
-  int phoneNo;
+  long phoneNo;
   String rationNo;
   String city;
   float longitude;
@@ -23,7 +23,7 @@ String id;
         id = in.readString();
         name = in.readString();
         emailId = in.readString();
-        phoneNo = in.readInt();
+        phoneNo = in.readLong();
         city = in.readString();
         longitude = in.readFloat();
         latitude = in.readFloat();
@@ -71,11 +71,11 @@ String id;
         this.emailId = emailId;
     }
 
-    public int getPhoneNo() {
+    public long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
@@ -154,7 +154,7 @@ String id;
     public Customer() {
     }
 
-    public Customer(String id, String name, String emailId, int phoneNo, String city, float longitude, float latitude, String password, int aadharNo, String voterNo, String panNo, int credit) {
+    public Customer(String id, String name, String emailId, long phoneNo, String city, float longitude, float latitude, String password, int aadharNo, String voterNo, String panNo, int credit) {
         this.id = id;
         this.name = name;
         this.emailId = emailId;
@@ -180,7 +180,7 @@ String id;
         dest.writeString(id);
         dest.writeString(name);
         dest.writeString(emailId);
-        dest.writeInt(phoneNo);
+        dest.writeLong(phoneNo);
         dest.writeString(city);
         dest.writeFloat(longitude);
         dest.writeFloat(latitude);

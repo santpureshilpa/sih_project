@@ -57,7 +57,7 @@
         android:background="@drawable/edit_round"
         android:ems="10"
         android:hint="Phone No."
-        android:inputType="text"
+        android:inputType="number"
         android:padding="10dp"
         android:textAlignment="center"
         android:textSize="16dp"

@@ -10,7 +10,7 @@ public class Distributor implements Parcelable {
     String id;
     String name;
     int aadharNo;
-    int mobileNo;
+    long mobileNo;
     String emailId;
     String password;
 
@@ -31,7 +31,7 @@ public class Distributor implements Parcelable {
         id = in.readString();
         name = in.readString();
         aadharNo = in.readInt();
-        mobileNo = in.readInt();
+        mobileNo = in.readLong();
         emailId = in.readString();
         shopId = in.readString();
         shopName = in.readString();
@@ -81,11 +81,11 @@ public class Distributor implements Parcelable {
         this.aadharNo = aadharNo;
     }
 
-    public int getMobileNo() {
+    public long getMobileNo() {
         return mobileNo;
     }
 
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(long mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -187,7 +187,7 @@ public class Distributor implements Parcelable {
         dest.writeString(id);
         dest.writeString(name);
         dest.writeInt(aadharNo);
-        dest.writeInt(mobileNo);
+        dest.writeLong(mobileNo);
         dest.writeString(emailId);
         dest.writeString(shopId);
         dest.writeString(shopName);
